@@ -6,24 +6,23 @@ A Postman collection that automatically pages through a paginated API, using `pm
 
 ## What it does
 
-- Sends an initial request and pulls the pagination URL (`next`) straight out of the JSON response body
+- Sends an initial request and pulls the pagination URL (`next`) out of the JSON response body
 - Chains into a second request that re-runs itself, advancing to the next page automatically
-- Logs each page's results to Console as it runs
-- Includes a hard stop so it can't loop forever against a live API
+- Includes a hard stop so it doesn't loop forever
 
 ## Requests
 
 | Request | Purpose |
 |---|---|
-| `Start Request` | Kicks off the run, grabs page 1, extracts the `next` URL |
+| `Start Request` | starts the run, grabs page 1, pulls the `next` URL |
 | `Fetch Next URL Request` | Re-runs itself against each subsequent page until `next` is null or the safety limit is hit |
 
 ## How to use it
 
 1. Click **View live documentation** above, or import `Pagination Exercise PokéAPI` manually
-2. No environment setup or auth needed, PokéAPI is an open API, which is why I chose it 
+2. No environment file needed or auth (PokéAPI is an open API) 
 3. Open the Postman Console (`View → Show Postman Console`) to watch it run
-4. Right-click the collection → **Run collection**
+4. Right-click collection → **Run collection**
 
 ---
 
